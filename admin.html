@@ -1,6 +1,14 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
+    <script>
+        function logout() {
+            // Retirer l'état d'authentification
+            localStorage.removeItem('isAuthenticated');
+            // Rediriger vers la page de connexion
+            window.location.href = 'login.html';
+        }
+    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Page Admin</title>
@@ -19,24 +27,6 @@
             margin-top: 20px;
         }
     </style>
-    <script>
-        // Vérifier l'état d'authentification
-        window.onload = function() {
-            const isAuthenticated = localStorage.getItem('isAuthenticated');
-            if (isAuthenticated !== 'true') {
-                // Rediriger vers la page de connexion si non authentifié
-                window.location.href = 'login.html';
-            }
-        }
-
-        // Fonction de déconnexion
-        function logout() {
-            // Retirer l'état d'authentification
-            localStorage.removeItem('isAuthenticated');
-            // Rediriger vers la page de connexion
-            window.location.href = 'login.html';
-        }
-    </script>
 </head>
 <body>
     <h1>Bienvenue sur la Page Admin</h1>
