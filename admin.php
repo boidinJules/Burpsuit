@@ -1,14 +1,14 @@
+<?php
+session_start();
+
+if (!isset($_SESSION['isAuthenticated']) || $_SESSION['isAuthenticated'] !== true) {
+    die('Accès refusé.');
+}
+?>
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <script>
-        function logout() {
-            // Retirer l'état d'authentification
-            localStorage.removeItem('isAuthenticated');
-            // Rediriger vers la page de connexion
-            window.location.href = 'login.html';
-        }
-    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Page Admin</title>
@@ -22,7 +22,7 @@
             color: #333;
         }
         img {
-            width: 100px; /* Ajustez la taille de l'image de déconnexion */
+            width: 100px;
             cursor: pointer;
             margin-top: 20px;
         }
@@ -31,8 +31,10 @@
 <body>
     <h1>Bienvenue sur la Page Admin</h1>
     <p>Vous êtes connecté avec succès.</p>
-    <!-- Image de déconnexion cliquable -->
-    <img src="image4.jpeg" alt="Déconnexion" onclick="logout()">
+    <form action="logout.php" method="post" style="display: inline;">
+        <button type="submit" style="border: none; background: none;">
+            <img src="image4.jpeg" alt="Déconnexion">
+        </button>
+    </form>
 </body>
 </html>
-
