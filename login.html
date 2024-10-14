@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <style>
+        body {
+            background-color: #f4f4f4;
+            text-align: center;
+            padding-top: 50px;
+        }
+        h1 {
+            color: #333;
+        }
+        form {
+            margin-top: 20px;
+        }
+        input {
+            padding: 10px;
+            margin: 5px;
+        }
+        button {
+            padding: 10px 15px;
+        }
+    </style>
+    <script>
+        function handleLogin(event) {
+            event.preventDefault(); // Empêche le rechargement de la page
+
+            // Récupérer les valeurs des champs
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+
+            // Vérifier les identifiants
+            if (username === 'admin' && password === 'admin') {
+                // Stocker l'état d'authentification dans le stockage local
+                localStorage.setItem('isAuthenticated', 'true');
+                // Rediriger vers la page admin.html
+                window.location.href = 'admin.html';
+            } else {
+                alert('Identifiants incorrects. Veuillez réessayer.');
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1>Connexion</h1>
+    <form onsubmit="handleLogin(event)">
+        <input type="text" id="username" placeholder="Nom d'utilisateur" required>
+        <input type="password" id="password" placeholder="Mot de passe" required>
+        <br>
+        <button type="submit">Se connecter</button>
+    </form>
+</body>
+</html>
+

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page Admin</title>
+    <style>
+        body {
+            background-color: #f4f4f4;
+            text-align: center;
+            padding-top: 50px;
+        }
+        h1 {
+            color: #333;
+        }
+        img {
+            width: 100px; /* Ajustez la taille de l'image de déconnexion */
+            cursor: pointer;
+            margin-top: 20px;
+        }
+    </style>
+    <script>
+        // Vérifier l'état d'authentification
+        window.onload = function() {
+            const isAuthenticated = localStorage.getItem('isAuthenticated');
+            if (isAuthenticated !== 'true') {
+                // Rediriger vers la page de connexion si non authentifié
+                window.location.href = 'login.html';
+            }
+        }
+
+        // Fonction de déconnexion
+        function logout() {
+            // Retirer l'état d'authentification
+            localStorage.removeItem('isAuthenticated');
+            // Rediriger vers la page de connexion
+            window.location.href = 'login.html';
+        }
+    </script>
+</head>
+<body>
+    <h1>Bienvenue sur la Page Admin</h1>
+    <p>Vous êtes connecté avec succès.</p>
+    <!-- Image de déconnexion cliquable -->
+    <img src="image4.jpeg" alt="Déconnexion" onclick="logout()">
+</body>
+</html>
+
